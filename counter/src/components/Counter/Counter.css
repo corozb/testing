@@ -1,0 +1,16 @@
+.text-center {
+  text-align: center;
+}
+
+.counter {
+  font-size: 60px;
+  margin: 10px;
+}
+
+.green {
+  color: greenyellow;
+}
+
+.red {
+  color: red;
+}
