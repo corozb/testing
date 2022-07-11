@@ -1,34 +1,32 @@
-import React, { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
 
-export const replaceCamelWithSpaces = (colorName) => {
-  return colorName.replace(/\B([A-Z])\B/g, ' $1')
+export function replaceCamelWithSpaces(colorName) {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1');
 }
 
 function App() {
-  const [buttonColor, setButtonColor] = useState('red')
-  const [isDisabled, setIsDisabled] = useState(false)
-  const newButtonColor = buttonColor === 'red' ? 'blue' : 'red'
-
-  const changeColor = () => setButtonColor(newButtonColor)
-  const handleDisable = (e) => setIsDisabled(e.target.checked)
-
+  const [ buttonColor, setButtonColor ] = useState('MediumVioletRed');
+  const [ disabled, setDisabled ] = useState(false);
+  
+  const newButtonColor = buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
+  
   return (
-    <div className='App'>
-      <button onClick={changeColor} style={{ background: isDisabled ? 'gray' : buttonColor }} disabled={isDisabled}>
-        Change to {newButtonColor}
-      </button>
-      <br />
-      <input
-        type='checkbox'
-        id='disable-button-checkbox'
-        defaultChecked={isDisabled}
-        aria-checked={isDisabled}
-        onChange={handleDisable}
-      />
-      <label htmlFor='disable-button-checkbox'>Disable button</label>
-    </div>
-  )
+    <div>
+      <button
+        style={{backgroundColor: disabled ? 'gray' : buttonColor}}
+        onClick={() => setButtonColor(newButtonColor)}
+        disabled={disabled}
+      >Change to {replaceCamelWithSpaces(newButtonColor)}</button>
+    <br />
+    <input
+        type="checkbox"
+        id="disable-button-checkbox"
+        defaultChecked={disabled}
+        aria-checked={disabled}
+        onChange={(e) => setDisabled(e.target.checked)} />
+        <label htmlFor="disable-button-checkbox">Disable button</label>
+    </div>  
+  );
 }
 
-export default App
+export default App;

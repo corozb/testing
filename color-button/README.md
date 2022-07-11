@@ -1,15 +1,25 @@
-# Test Color Button
+# Color Button
 
-- getByRole option { name: }
-- ToHaveStyle
-- fireEvent.click
-- textContent
-- toBeEnabled() --> enable checkbox
-- toBeDisabled()
-- toBeChecked()
-- **describe** to group test
-- checkbox checked and disable a button
-- Unit testing functions: replace capital letter with space
+This project accompanies the Udemy course [Testing React with Jest and Testing Library](https://www.udemy.com/course/react-testing-library/).
 
+## Mock-Ups
 
-![WhatsApp Image 2022-07-11 at 1 27 01 PM](https://user-images.githubusercontent.com/37992878/178334262-3733752e-2388-4df0-ae92-5ccd4ab30c88.jpeg)
+### 1. Red Button
+
+![Red Button](https://github.com/bonnie/udemy-TESTING-LIBRARY/blob/master/finished-projects/color-button/mock-ups/1-red-button.png)
+
+### 2. Blue Button
+
+![Blue Button](https://github.com/bonnie/udemy-TESTING-LIBRARY/blob/master/finished-projects/color-button/mock-ups/2-blue-button.png)
+
+### 3. Checkbox
+
+![Checkbox](https://github.com/bonnie/udemy-TESTING-LIBRARY/blob/master/finished-projects/color-button/mock-ups/3-checkbox.png)
+
+### 4. Checkbox Label
+
+![Checkbox Label](https://github.com/bonnie/udemy-TESTING-LIBRARY/blob/master/finished-projects/color-button/mock-ups/4-checkbox-label.png)
+
+### 5. Gray Disabled Button
+
+![Gray Disabled Button](https://github.com/bonnie/udemy-TESTING-LIBRARY/blob/master/finished-projects/color-button/mock-ups/5-gray-disabled-button.png)
