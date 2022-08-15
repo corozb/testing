@@ -2,6 +2,42 @@
 
 This project accompanies the Udemy course [Testing React with Jest and Testing Library](https://www.udemy.com/course/react-testing-library/).
 
+- change **fireEvent** for **userEvent**
+- commmand[All]By**QueryType**
+
+  `command`
+
+  - **get**: expect element to be in DOM
+  - **query**: expect element not to be in DOM
+  - **find**: expect element appear async
+
+  `[All]`
+
+  - **(exclude)** expect only one match
+  - **(include)** expect more than one match
+
+  `QueryType`
+
+  - **Role** (most preferred)
+  - **AltText** (images)
+  - **Text** (display elements)
+  - **Form elements**
+    - PlaceholderText
+    - LabelText
+    - DisplayValue
+
+- Mock Service Worker [msw](https://mswjs.io/docs/getting-started)
+
+```
+> mocks/handlers.js
+> setupTest.js
+```
+
+- await findBy: Waiting for something to appear asynchronously on the page
+- waitFor: for test where **await findBy** is not enough
+- Isolate file by typing **p** in Jest watch model
+- Isolate test within file with **test.only** or **test.skip**
+
 ## Mock-Ups
 
 ### 1. Order Summary Page
