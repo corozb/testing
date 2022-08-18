@@ -68,4 +68,16 @@ This project accompanies the Udemy course [Testing React with Jest and Testing L
 ### 9. Order Confirmation Page with Server Error
 <img width="452" alt="9-order-confirmation-server-error" src="https://user-images.githubusercontent.com/37992878/185156818-c8947e79-daa4-4ec8-982e-3dd3b354c010.png">
 
+
+# Mock Service Worker
 ## When you are waiting for something to appear asynchronously on the page you must use **await** **findBy**
+
+- Mock Service Worker mimics response from server
+  - create handler
+  - create server
+  - update **setupTest** to listen for request
+- **getAllByRole**
+  - search for more than one match to role
+- await **findAllByRole** 
+  - for asynchronous DOM update of elements
+
