@@ -76,6 +76,14 @@ This project accompanies the Udemy course [Testing React with Jest and Testing L
 
 <img width="452" alt="9-order-confirmation-server-error" src="https://user-images.githubusercontent.com/37992878/185156818-c8947e79-daa4-4ec8-982e-3dd3b354c010.png">
 
+## Use the queryMethods
+<img width="535" alt="Screen Shot 2022-09-06 at 11 01 45 AM" src="https://user-images.githubusercontent.com/37992878/189447713-6a70e152-62f5-42ae-b150-1dff43f0f29e.png">
+
+![](https://user-images.githubusercontent.com/37992878/189447768-190401e4-51b7-40eb-ab00-930c42a4c072.png)
+![](https://user-images.githubusercontent.com/37992878/189447864-35b8c197-d4fe-4096-89f4-1d2f8f1a41cb.png)
+
+
+
 # Mock Service Worker
 
 ## When you are waiting for something to appear asynchronously on the page you must use **await** **findBy**
@@ -89,3 +97,24 @@ This project accompanies the Udemy course [Testing React with Jest and Testing L
 - await **findAllByRole**
   - for asynchronous DOM update of elements
 - await **waitFor** for test where **await find by** isn't enough.
+
+
+# Test the Context Provider
+![](https://user-images.githubusercontent.com/37992878/189448267-85a34b0d-343b-4be4-a9a0-43c6629a04b6.png)
+
+Redefine the render and other methos in `testing-library-utils.jsx` in this way:
+```
+import { render } from '@testing-library/react'
+import { OrderDetailsProvider } from '../context/OrderDetails'
+
+const renderWithContext = (ui, options) => render(ui, { wrapper: OrderDetailsProvider, ...options })
+
+//* re-export everything
+export * from '@testing-library/react'
+
+//* override render method
+export { renderWithContext as render }
+```
+
+and consume:
+`import { render, screen } from '../../../test-utils/testing-library-utils'`
