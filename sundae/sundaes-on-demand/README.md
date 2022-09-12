@@ -118,3 +118,33 @@ export { renderWithContext as render }
 
 and consume:
 `import { render, screen } from '../../../test-utils/testing-library-utils'`
+
+## How to find an element
+- `{exact: false}` is not an option for **byRole**
+  - Either use **byRole** and regular expression for `name` option or
+    - `screen.getByRole('heading', {name: /grand total: \$/i})`
+    
+   - **byText** and `{exact: false}`
+      - `screen.getByText('Grand total: $', {exact: false})`
+
+# Debuggin Tips
+-`screen.debug()`
+- Does **getBy** fail when there a server call or other async action?
+  - need to use **await findBy**
+- Read test error output carefully
+  - don't get intimidated by huge walls of text!
+  - exactly which assertion is failing?
+  - copy/paste errors into web search
+ - Try pre-written code to see whether your test or code are the issue
+   - Clearly not a viable option in real life, but useful tool while learning
+
+
+## Resolving Errors from Test
+
+example: <span style="color:red">Unable to find role="role"</span>.
+
+| Error      | Possible Cause |
+| ----------- | ----------- |
+| Unable to find role="role" | Either role (for example, *button**) doesn't exist or no element with that role that also matches *name option|
+| Paragraph   | Text        |
+
