@@ -106,6 +106,44 @@ it('test toppings header is not on summary page if no toppings ordered', async (
   expect(toppingsHeading).not.toBeInTheDocument()
 })
 
+it('test toppings header is not on summary page if toppings ordered, then removed', async () => {
+  //* render app
+  render(<App />)
+
+  //* add ice cream scoops
+  const vanillaInput = await screen.findByRole('spinbutton', {
+    name: 'Vanilla',
+  })
+  await userEvent.clear(vanillaInput)
+  await userEvent.type(vanillaInput, '1')
+
+  //* add a topping and confirm
+  const cherriesTopping = await screen.findByRole('checkbox', {
+    name: 'Cherries',
+  })
+  await userEvent.click(cherriesTopping)
+  expect(cherriesTopping).toBeChecked()
+  const toppingsTotal = screen.getByText('Toppings total: $', { exact: false })
+  expect(toppingsTotal).toHaveTextContent('1.50')
+
+  //* remove the topping
+  await userEvent.click(cherriesTopping)
+  expect(cherriesTopping).not.toBeChecked()
+  expect(toppingsTotal).toHaveTextContent('0.00')
+
+  //* find and click order summary button
+  const orderSummaryButton = screen.getByRole('button', {
+    name: /order sundae/i,
+  })
+  await userEvent.click(orderSummaryButton)
+
+  const scoopsHeading = screen.getByRole('heading', { name: 'Scoops: $2.00' })
+  expect(scoopsHeading).toBeInTheDocument()
+
+  const toppingsHeading = screen.queryByRole('heading', { name: /toppings/i })
+  expect(toppingsHeading).not.toBeInTheDocument()
+})
+
 it('test disable order button if there are no scoops ordered', async () => {
   //* render app */
   render(<App />)
