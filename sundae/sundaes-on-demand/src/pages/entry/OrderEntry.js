@@ -4,7 +4,8 @@ import { useOrderDetails } from '../../context/OrderDetails'
 import Options from './Options'
 
 export const OrderEntry = ({ setOrderPhase }) => {
-  const [optionCounts] = useOrderDetails()
+  const [orderDetails] = useOrderDetails()
+  const orderDisabled = orderDetails.totals.scoops === '$0.00'
 
   const handlePage = () => setOrderPhase('review')
 
@@ -13,8 +14,10 @@ export const OrderEntry = ({ setOrderPhase }) => {
       <h1>Design Your Sundae!</h1>
       <Options optionType='scoops' />
       <Options optionType='toppings' />
-      <h2>Grand Total: {optionCounts.totals.grandTotal}</h2>
-      <Button onClick={handlePage}>Order Sundae!</Button>
+      <h2>Grand Total: {orderDetails.totals.grandTotal}</h2>
+      <Button disabled={orderDisabled} onClick={handlePage}>
+        Order Sundae!
+      </Button>
     </>
   )
 }

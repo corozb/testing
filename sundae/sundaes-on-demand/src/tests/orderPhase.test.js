@@ -59,6 +59,10 @@ it('test order phases for happy path', async () => {
   })
   expect(thankYouHeader).toBeInTheDocument()
 
+  //* expect that loading has disappeared*/
+  const loadingText = screen.queryByText('loading')
+  expect(loadingText).not.toBeInTheDocument()
+
   const orderNumber = await screen.findByText(/order number/i)
   expect(orderNumber).toBeInTheDocument()
 
@@ -76,4 +80,48 @@ it('test order phases for happy path', async () => {
   //* happening after test is over
   await screen.findByRole('spinbutton', { name: 'Vanilla' })
   await screen.findByRole('checkbox', { name: 'Cherries' })
+})
+
+it('test toppings header is not on summary page if no toppings ordered', async () => {
+  //* render app */
+  render(<App />)
+
+  //* add ice cream scoops and toppings
+  const vanillaInput = await screen.findByRole('spinbutton', { name: 'Vanilla' })
+  await userEvent.clear(vanillaInput)
+  await userEvent.type(vanillaInput, '1')
+
+  const chocolateInput = await screen.findByRole('spinbutton', { name: 'Chocolate' })
+  await userEvent.clear(chocolateInput)
+  await userEvent.type(chocolateInput, '2')
+
+  //* find and click order summary button
+  const orderSummaryButton = screen.getByRole('button', { name: /order sundae/i })
+  await userEvent.click(orderSummaryButton)
+
+  const scoopsHeading = screen.getByRole('heading', { name: 'Scoops: $6.00' })
+  expect(scoopsHeading).toBeInTheDocument()
+
+  const toppingsHeading = screen.queryByRole('heading', { name: /toppings/i })
+  expect(toppingsHeading).not.toBeInTheDocument()
+})
+
+it('test disable order button if there are no scoops ordered', async () => {
+  //* render app */
+  render(<App />)
+
+  //* order button should be disabled at first, even before options load */
+  let orderButton = screen.queryByRole('button', { name: /order sundae/i })
+  expect(orderButton).toBeDisabled()
+
+  //* expect button to be enabled after adding scoop
+  const vanillaInput = await screen.findByRole('spinbutton', { name: 'Vanilla' })
+  await userEvent.clear(vanillaInput)
+  await userEvent.type(vanillaInput, '1')
+  expect(orderButton).toBeEnabled()
+
+  //* expect button to disabled again after removing scoop
+  await userEvent.clear(vanillaInput)
+  await userEvent.type(vanillaInput, '0')
+  expect(orderButton).toBeDisabled()
 })
