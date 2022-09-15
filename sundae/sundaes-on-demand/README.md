@@ -140,11 +140,9 @@ and consume:
 
 
 ## Resolving Errors from Test
+![](https://user-images.githubusercontent.com/37992878/190444634-b2e8d553-c8ee-4292-a951-bd1a05a52447.jpeg)
 
-example: <span style="color:red">Unable to find role="role"</span>.
+## Passing a Mock as a Prop
+![](https://user-images.githubusercontent.com/37992878/190445585-49b8e9b0-a94f-4c9a-852f-34f6ce63c1e1.jpeg)
 
-| Error      | Possible Cause |
-| ----------- | ----------- |
-| Unable to find role="role" | Either role (for example, *button**) doesn't exist or no element with that role that also matches *name option|
-| Paragraph   | Text        |
 
