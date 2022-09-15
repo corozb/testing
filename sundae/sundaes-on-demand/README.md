@@ -145,4 +145,18 @@ and consume:
 ## Passing a Mock as a Prop
 ![](https://user-images.githubusercontent.com/37992878/190445585-49b8e9b0-a94f-4c9a-852f-34f6ce63c1e1.jpeg)
 
+### Exercise
+![](https://user-images.githubusercontent.com/37992878/190446860-8b9ea8b5-0f76-4dec-a21f-20b86416956c.jpeg)
 
+# Standard Questions to ask before every test
+![](https://user-images.githubusercontent.com/37992878/190446388-3fe148bf-33c3-4177-8ccf-f4ea829b1ece.jpeg)
+
+## Examples
+![](https://user-images.githubusercontent.com/37992878/190447123-61c93aa8-431d-426d-8459-3737abeb34d6.jpeg)
+![](https://user-images.githubusercontent.com/37992878/190447691-ce418284-53cf-427d-be36-2ff8aa02bab9.jpeg)
+
+#### Disable Order Button for No Scoops
+![](https://user-images.githubusercontent.com/37992878/190447422-ef8bc954-16bf-4a7b-a9cc-127a1aeca30b.jpeg)
+
+#### Order Error 
+![](https://user-images.githubusercontent.com/37992878/190447942-d5a734b6-347a-4b67-bde6-f9728be5cf2b.jpeg)
